@@ -40,8 +40,8 @@ WITH RECURSIVE seq AS (SELECT 1 AS num
                        UNION ALL 
 											 
                        SELECT num + 1 
-											 FROM seq 
-											 WHERE num < 100) -- The maximum customer_id will not exceed 100.
+		       FROM seq 
+		       WHERE num < 100) -- The maximum customer_id will not exceed 100.
 SELECT num AS ids
 FROM seq
 WHERE num NOT IN (SELECT customer_id FROM customers)
