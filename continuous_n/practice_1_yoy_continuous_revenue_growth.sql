@@ -32,7 +32,7 @@ WHERE brand NOT IN (SELECT DISTINCT brand
 -- Solution: Determine the year-on-year (YoY) growth rate for brands that have experienced growth.
 -- Notes: A Brand has experienced growth for one or more years doesn't mean it has expereienced growth in every year (like part 1).
 WITH temp AS (
-    SELECT *, LAG(amount) OVER(PARTITION BY Brand ORDER BY Year) as prev_amt
+    SELECT *, LAG(amount) OVER(PARTITION BY Brand ORDER BY year) as prev_amt
     FROM Practice1_Brands
 )
 SELECT *, concat(round((amount-prev_amt) / prev_amt,2)*100,'%') AS yoy
