@@ -1,5 +1,5 @@
 #### [leetcode_Q1322: Click-Through Rate (CTR)](https://github.com/irenejiazhou/sql_manual/blob/main/common_metrics/leetcode_Q1322_CTR.sql)
-<b>ROUND(IFNULL(result*100,0))</b> \
+<b>ROUND(IFNULL(result*100,0),2)</b> \
 For rates: <b>result * 100 before ROUND()</b>
 
 <img src="https://github.com/irenejiazhou/sql_manual/blob/main/images/q1322_ctr.png"  width="80%" height="80%">
@@ -9,3 +9,6 @@ For rates: <b>result * 100 before ROUND()</b>
 CASE WHEN or IFNULL() \
 For COUNT() in the denominator: always prevent the situation where COUNT() = 0.\
 If there is a join between table A and B, sum(B.col) is very likely equal to 0 when there is a record in A but not in B.
+
+#### [leetcode_Q1934: Confirmation Rate](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1934.sql)
+<b>ROUND(IFNULL(result,0),2)</b>
