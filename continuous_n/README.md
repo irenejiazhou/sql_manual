@@ -6,3 +6,4 @@
 | [practice_1](https://github.com/irenejiazhou/sql_manual/blob/main/continuous_n/practice_1_yoy_continuous_revenue_growth.sql)|order by year||✅||
 | [leetcode_Q1285](https://github.com/irenejiazhou/sql_manual/blob/main/continuous_n/leetcode_Q1285_continuous_ranges.sql)|order by id|✅||✅|
 | [leetcode_Q603](https://github.com/irenejiazhou/sql_manual/blob/main/continuous_n/leetcode_Q603_consecutive_ranges.sql)|order by id|✅|✅||
+| [leetcode_Q603](https://github.com/irenejiazhou/sql_manual/blob/main/continuous_n/leetcode_Q2292_consecutive_years.sql)|order by year|✅|||
