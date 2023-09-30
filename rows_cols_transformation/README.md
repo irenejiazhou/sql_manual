@@ -1,3 +1,4 @@
+"rows_cols_transformation" refers to the conversions between cols and rows based on some rules / categories (not simple pivot).
 
 | SQL Script  | Desc | 
 | ----------- | ---- |
