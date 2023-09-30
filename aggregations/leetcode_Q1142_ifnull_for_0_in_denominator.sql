@@ -53,7 +53,7 @@ WITH temp AS (SELECT user_id, COUNT(DISTINCT session_id) AS session_cnt
               WHERE DATEDIFF('2019-07-27', activity_date) <= 29
               GROUP BY user_id)
 SELECT CASE WHEN COUNT(*) = 0 THEN 0
-            ELSE ROUND(SUM(session_cnt) / COUNT(user_id),2) -- COUNT() can be NULL when there is no activity in the 30 days.
+            ELSE ROUND(SUM(session_cnt) / COUNT(user_id),2) -- COUNT() can be 0 when there is no activity in the 30 days.
             END AS average_sessions_per_user
 FROM temp;
 /*
