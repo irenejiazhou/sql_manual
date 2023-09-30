@@ -1,5 +1,6 @@
 -- EASY Q1661: Average Time of Process per Machine
-/*Input: 
+/*
+Input: 
 Activity table:
 +------------+------------+---------------+-----------+
 | machine_id | process_id | activity_type | timestamp |
@@ -27,25 +28,29 @@ Machine 1's average time is ((1.550 - 0.550) + (1.420 - 0.430)) / 2 = 0.995*/
 
 -- Solution 1: JOIN
 -- Time Complexity: O(N^2) + O(M)
--- N为activity表的行数 = 8，M为activity表自关联以后的行数 = 4
-SELECT s.machine_id, ROUND(AVG(e.timestamp-s.timestamp), 3) AS processing_time
-FROM Activity s 
+-- N is the row number of activity table = 8
+-- M is the row number of 2 activity tables joined together with conditions = 4
+SELECT s.machine_id, ROUND(AVG(e.timestamp - s.timestamp), 3) AS processing_time
+FROM Activity s
 JOIN Activity e 
-  ON s.machine_id = e.machine_id AND s.process_id = e.process_id AND
-     s.activity_type = 'start' AND e.activity_type = 'end'
-GROUP BY s.machine_id
+  ON s.machine_id = e.machine_id 
+  AND s.process_id = e.process_id 
+  AND s.activity_type = 'start' 
+  AND e.activity_type = 'end'
+GROUP BY s.machine_id;
 
--- Solution 2: CASE WHEN
+-- Solution 2: MAX(CASE WHEN)
 -- Time Complexity: O(N) + O(P)
--- N为activity表的行数 = 8，P为activity表根据machine_id和process_id group by以后的行数 = 4
-with temp as (
-    select 
+-- N is the row number of activity table = 8
+-- P is the row number of activity table grouped by machine_id and process_id = 4 (the result of temp table)
+WITH temp AS (
+    SELECT 
     machine_id, process_id, 
-    max(case when activity_type = 'start' then timestamp end) as start_time,
-    max(case when activity_type = 'end' then timestamp end) end_time
-    from activity
-    group by  machine_id, process_id
+    MAX(CASE WHEN activity_type = 'start' THEN timestamp END) start_time,
+    MAX(CASE WHEN activity_type = 'end' THEN timestamp END) end_time
+    FROM activity
+    GROUP BY machine_id, process_id
 )
-select machine_id, round(avg(end_time - start_time),3) as processing_time
-from temp
-group by machine_id
+SELECT machine_id, ROUND(AVG(end_time - start_time), 3) AS processing_time
+FROM temp
+GROUP BY machine_id;
