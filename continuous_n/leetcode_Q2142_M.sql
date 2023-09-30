@@ -64,7 +64,7 @@ Explanation:
 
 -- Notes:
 -- Start with passenger's arrival time, and then find the latest bus after that.
--- If start with bus' arrial time, one passenger will be joined with all buses arriving after the passenger.
+-- If starting with bus' arrial time, one passenger will be joined with all buses arriving after the passenger.
 
 -- Solution
 with temp as (select passenger_id, min(b.arrival_time) as latest_bus_time
