@@ -1,6 +1,6 @@
 "Continous N" refers to questions that order an entity (some entities) by an attribute (some attributes) which is continuous, like time, year, id, etc.
 
-| SQL Script  | DESC | Special Joins: Comparison/col_x=col_x±n | LEAD()/LAG() | ROW_NUM/RANK | SUM()OVER() |
+| SQL Script  | DESC | Special Join Cons: Comparison/col_x=col_x±n | LEAD()/LAG() | ROW_NUM/RANK | SUM()OVER() |
 | ----------- | ---- | :------------------: | :----------: | :----------: | :----------: |
 | [practice_1](https://github.com/irenejiazhou/sql_manual/blob/main/continuous_n/practice_1_yoy_continuous_revenue_growth.sql)|order by year||✅||
 | [lc_2292](https://github.com/irenejiazhou/sql_manual/blob/main/continuous_n/leetcode_Q2292_purchase_in_consecutive_years.sql)|order by year|✅|||
