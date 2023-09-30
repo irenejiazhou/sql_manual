@@ -58,16 +58,16 @@ Player 3 (Novak) did not win anything, we did not include them in the result tab
 */
 WITH CTE AS 
    (
-    SELECT Wimbledon AS id FROM Championships
+    SELECT Wimbledon AS player_id FROM Championships
     UNION ALL 
     -- Not UNION because UNION removes duplicates.
-    SELECT Fr_open AS id FROM Championships
+    SELECT Fr_open AS player_id FROM Championships
     UNION ALL
-    SELECT US_open AS id FROM Championships
+    SELECT US_open AS player_id FROM Championships
     UNION ALL 
-    SELECT Au_open AS id FROM Championships)
-SELECT player_id,player_name, COUNT(*) AS grand_slams_count
+    SELECT Au_open AS player_id FROM Championships)
+SELECT Players.player_id, player_name, COUNT(*) AS grand_slams_count
 FROM Players 
 INNER JOIN CTE 
-	ON Players.player_id = CTE.id
-GROUP BY player_id,player_name;
+	ON Players.player_id = CTE.player_id
+GROUP BY player_id, player_name;
