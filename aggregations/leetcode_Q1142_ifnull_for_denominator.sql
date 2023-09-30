@@ -49,13 +49,13 @@ WITH temp AS (SELECT user_id, COUNT(DISTINCT session_id) AS session_cnt
               FROM activity
 	      -- DATEDIFF(end_date, start_date), dates should be quoted.
 	      -- Inclusive means 2019-07-27, the end_date, is included in the 30 days, so there are other 29 possible days.
+	      -- DATEDIFF can be replaced by activity_date > '2019-06-27' AND activity_date <= '2019-07-27'.
               WHERE DATEDIFF('2019-07-27', activity_date) <= 29
               GROUP BY user_id)
 SELECT CASE WHEN COUNT(*) = 0 THEN 0
-            ELSE ROUND(SUM(session_cnt) / COUNT(user_id),2) 
+            ELSE ROUND(SUM(session_cnt) / COUNT(user_id),2) -- COUNT() can be NULL when there is no activity in the 30 days.
             END AS average_sessions_per_user
 FROM temp;
 /*
 CASE WHEN can be replaced by IFNULL(not null situation, null situation)
-DATEDIFF can be replaced by activity_date > '2019-06-27' AND activity_date <= '2019-07-27'
 */
