@@ -1,6 +1,6 @@
 -- MEDIUM Q1454: Active Users
 /*
-Table: Accounts
+Table: Accounts 
 +---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
