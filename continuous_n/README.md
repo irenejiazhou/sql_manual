@@ -5,5 +5,5 @@ There are some common expression in questions related to continuous n:
 
 | SQL Script  | join using >= <= > < | lead()/lag() |
 | ----------- | ----------- |  ----------- |
-| Header      | Title       |  Title       |
+| [leetcode_Q2142]https://github.com/irenejiazhou/sql_manual/blob/main/continuous_n/leetcode_Q2142_M.sql     | Title       |  Title       |
 | Paragraph   | Text        |  Title       |
