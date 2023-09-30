@@ -53,5 +53,5 @@ SELECT ad_id,
 -- because action='Clicked' either equals to 1 or 0, but COUNT() is used for NULL or NOT NULL.
 ROUND(IFNULL(SUM(action='Clicked') / (SUM(action='Clicked') + SUM(action='Viewed')), 0) * 100, 2) as ctr
 FROM ads
-GROUP BY ad_id;
-ORDER BY ctr DESC, ad_id ASC
+GROUP BY ad_id
+ORDER BY ctr DESC, ad_id ASC;
