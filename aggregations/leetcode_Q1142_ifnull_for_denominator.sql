@@ -47,8 +47,8 @@ Explanation: User 1 and 2 each had 1 session in the past 30 days while user 3 ha
 */
 WITH temp AS (SELECT user_id, COUNT(DISTINCT session_id) AS session_cnt
               FROM activity
-										-- DATEDIFF(end_date, start_date), dates should be quoted.
-										-- Inclusive means 2019-07-27, the end_date, is included in the 30 days, so there are other 29 possible days.
+	      -- DATEDIFF(end_date, start_date), dates should be quoted.
+	      -- Inclusive means 2019-07-27, the end_date, is included in the 30 days, so there are other 29 possible days.
               WHERE DATEDIFF('2019-07-27', activity_date) <= 29
               GROUP BY user_id)
 SELECT CASE WHEN COUNT(*) = 0 THEN 0
