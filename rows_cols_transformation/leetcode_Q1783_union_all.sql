@@ -70,5 +70,5 @@ WITH CTE AS
 SELECT player_id,player_name, COUNT(*) AS grand_slams_count
 FROM Players 
 INNER JOIN CTE 
-				ON Players.player_id = CTE.id
+	ON Players.player_id = CTE.id
 GROUP BY player_id,player_name;
