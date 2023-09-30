@@ -4,7 +4,7 @@ Table: Logs
 +---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
-| log_id        | int     |  PK
+| log_id        | int     |  PK 
 +---------------+---------+
 Each row of this table contains the ID in a log Table.
  
