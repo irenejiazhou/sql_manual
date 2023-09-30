@@ -45,4 +45,4 @@ WITH RECURSIVE seq AS (SELECT 1 AS num
 SELECT num AS ids
 FROM seq
 WHERE num NOT IN (SELECT customer_id FROM customers)
-  AND num <= (SELECT max(customer_id) FROM customers);
+  AND num <= (SELECT MAX(customer_id) FROM customers);
