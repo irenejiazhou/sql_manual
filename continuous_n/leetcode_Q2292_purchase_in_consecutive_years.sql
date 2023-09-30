@@ -2,7 +2,7 @@
 /*
 Table: Orders
 +---------------+------+
-| Column Name   | Type |
+| Column Name   | Type | 
 +---------------+------+
 | order_id      | int  |  PK
 | product_id    | int  |
