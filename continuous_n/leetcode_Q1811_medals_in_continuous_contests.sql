@@ -1,5 +1,5 @@
 -- MEDIUM Q1811: Find Interview Candidates
-/*
+/* 
 Table: Contests
 +--------------+------+
 | Column Name  | Type |
