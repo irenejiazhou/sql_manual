@@ -65,8 +65,7 @@ WITH CTE AS
     UNION ALL
     SELECT US_open AS id FROM Championships
     UNION ALL 
-    SELECT Au_open AS id FROM Championships
-		)
+    SELECT Au_open AS id FROM Championships)
 SELECT player_id,player_name, COUNT(*) AS grand_slams_count
 FROM Players 
 INNER JOIN CTE 
