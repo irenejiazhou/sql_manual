@@ -65,7 +65,7 @@ User 2 made 2 requests where one was confirmed and the other timed out. The conf
 */
 
 SELECT
-s.user_id, IFNULL(ROUND (SUM(c.action = 'confirmed') / COUNT(c.action), 2), 0) AS confirmation_rate
+s.user_id, ROUND ( IFNULL(SUM(c.action = 'confirmed') / COUNT(c.action), 0), 2) AS confirmation_rate
 FROM signups s
 LEFT JOIN confirmations c
        ON s.user_id = c.user_id
