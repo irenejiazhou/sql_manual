@@ -1,6 +1,6 @@
 -- EASY Q603 Consecutive Available Seats
 /*
-Table: Cinema
+Table: Cinema 
 +-------------+------+
 | Column Name | Type |
 +-------------+------+
