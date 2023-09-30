@@ -3,5 +3,6 @@
 | SQL Script  | Desc | Related Function(s) / Method(s) |
 | ----------- | ---- | ------------------- |
 | [lc_1484](https://github.com/irenejiazhou/sql_manual/blob/main/rows_cols_transformation/leetcode_Q1484_group_list_by_date.sql)|rows → cols (cols ↑ rows ↓) | Aggregate + GROUP_CONCAT()|
+| [lc_1777](https://github.com/irenejiazhou/sql_manual/blob/main/rows_cols_transformation/leetcode_Q1777.sql)|rows → cols (cols ↑ rows ↓) | JOIN or MAX(CASE WHEN) + an enum field with <b>2</b> categories |
 | [lc_1777](https://github.com/irenejiazhou/sql_manual/blob/main/rows_cols_transformation/leetcode_Q1777.sql)|rows → cols (cols ↑ rows ↓) | MAX(CASE WHEN) + an enum field with <b>limited</b> categories |
 | [lc_2252]()|rows → cols (cols ↑ rows ↓) | SUM(IF()) + an enum field with <b>unfixed</b> categories |
