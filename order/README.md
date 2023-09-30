@@ -1,4 +1,4 @@
-"Continous N" refers to questions that order an entity (some entities) by an attribute (some attributes) which is continuous, like time, year, id, etc.
+"O" refers to questions that order an entity (some entities) by an attribute (some attributes) which is continuous, like time, year, id, etc.
 
 | SQL Script  | Order By | Special Join Cons: Comparison/col_x=col_x±n | LEAD()/LAG() | ROW_NUM/RANK | SUM()OVER() |
 | ----------- | ---- | :------------------: | :----------: | :----------: | :----------: |
