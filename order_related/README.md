@@ -1,4 +1,6 @@
-"O" refers to questions that order an entity (some entities) by an attribute (some attributes) which is continuous, like time, year, id, etc.
+"order_related" refers to questions that order an entity (some entities) by an attribute (some attributes):
+1) which can be continuous, like time, year, id, etc.
+2) in certain pattern.
 
 | SQL Script  | Order By | Special Join Cons: Comparison/col_x=col_x±n | LEAD()/LAG() | ROW_NUM/RANK | SUM()OVER() |
 | ----------- | ---- | :------------------: | :----------: | :----------: | :----------: |
