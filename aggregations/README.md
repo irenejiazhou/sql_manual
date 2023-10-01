@@ -20,3 +20,8 @@ If there is a join between table A and B, sum(B.col) is very likely equal to 0 w
    1) When state = 'approved', SUM(state='approved') = 1, and COUNT(state='approved') = 1.
    2) When state != 'approved', SUM(state='approved') = 0, but COUNT(state='approved') = 1.
    3) COUNT() cannot be used in COUNT(condition) because no matter the condition works or not, COUNT(1) and COUNT(0) both equals to 1.
+
+#### [leetcode_Q1511: Customer Order Frequency](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1511_SUM(IF())_in_HAVING.sql)
+```
+HAVING SUM(IF(LEFT(order_date, 7) = '2020-06', quantity, 0) * price) >= 100
+```
