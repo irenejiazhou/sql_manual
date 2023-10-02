@@ -25,3 +25,8 @@ If there is a join between table A and B, sum(B.col) is very likely equal to 0 w
 ```
 HAVING SUM(IF(LEFT(order_date, 7) = '2020-06', quantity, 0) * price) >= 100
 ```
+
+#### [leetcode_Q1126: Active Businesses](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1126_avg()over().sql)
+```
+avg(occurences) over(partition by event_type)
+```
