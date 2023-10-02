@@ -39,9 +39,7 @@ WHERE(col_a, col_b) IN (SELECT col_a, MIN(col_b) FROM table GROUP BY col_a)
 
 #### [leetcode_Q1393: Capital Gain/Loss](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1393_sum_by_type.sql)
 ```
-SUM(CASE WHEN operation = 'Buy' THEN -price
-			                       ELSE price
-    END) AS capital_gain_loss
+SUM(CASE WHEN operation = 'Buy' THEN -price ELSE price END) AS capital_gain_loss
 ```
 
 #### Others
