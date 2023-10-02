@@ -44,8 +44,8 @@ Output:
 +---------------+-------------------+
 */
 -- Solution 1: Simplest
-SELECT stock_name, 
-			 SUM(CASE WHEN operation = 'Buy' THEN -price
+SELECT 	stock_name, 
+	SUM(CASE WHEN operation = 'Buy' THEN -price
 				        ELSE price
 				        END) AS capital_gain_loss
 FROM Stocks
@@ -53,11 +53,11 @@ GROUP BY stock_name;
 
 -- Solution 2: LAG()
 WITH capital AS (
-	SELECT stock_name, 
-    		 CASE WHEN operation = 'Sell' 
-    					THEN price - LAG(price,1) OVER(PARTITION BY stock_name ORDER BY operation_day)
-        			ELSE NULL 
-    					END AS capital_gain_loss
+	SELECT 	stock_name, 
+    		CASE WHEN operation = 'Sell' 
+	    	     THEN price - LAG(price,1) OVER(PARTITION BY stock_name ORDER BY operation_day)
+	        ELSE NULL 
+	    	END AS capital_gain_loss
 	FROM Q1393_Stocks)
 SELECT stock_name, 
        SUM(capital_gain_loss) AS capital_gain_loss
