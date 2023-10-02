@@ -1,4 +1,4 @@
--- MEDIUM Q1393 Capital Gain/Loss
+-- MEDIUM Q1393: Capital Gain/Loss
 /*
 Table: Stocks
 +---------------+---------+
