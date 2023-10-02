@@ -1,5 +1,7 @@
 Q1484 in rows_cols_transformation
 
+#### [leetcode_Q1364: Number of Trusted Contacts of a Customer](https://github.com/irenejiazhou/sql_manual/blob/main/conditional_labeling/leetcode_Q1364.sql)
 
-col_a IN (SELECT col_b FROM tbl)
--- the result of this expression is 1 or 0 which can be used like sum(col_a IN (SELECT col_b FROM tbl))
+1. `col_a IN (SELECT col_b FROM tbl)`\
+The result of this expression is 1 or 0 which can be used like `sum(col_a IN (SELECT col_b FROM tbl))`.
+2. `IFNULL(SUM(contact_email IN (SELECT email FROM customers)),0) AS trusted_contacts_cnt`
