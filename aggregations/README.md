@@ -31,7 +31,11 @@ HAVING SUM(IF(LEFT(order_date, 7) = '2020-06', quantity, 0) * price) >= 100
 AVG(occurences) OVER(PARTITION BY event_type)
 ```
 
-
+#### [leetcode_Q1070: Product Sales Analysis III](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1070_first_record_of_all_products.sql)
+Find the earliest record of product col_a (col_b is year).
+```
+WHERE(col_a, col_b) IN (SELECT col_a, MIN(col_b) FROM table GROUP BY col_a)
+```
 
 
 #### Others
