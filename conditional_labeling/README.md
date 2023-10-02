@@ -1,5 +1,3 @@
-Q1484 in rows_cols_transformation
-
 #### [leetcode_Q1364: Number of Trusted Contacts of a Customer](https://github.com/irenejiazhou/sql_manual/blob/main/conditional_labeling/leetcode_Q1364.sql)
 
 1. `col_a IN (SELECT col_b FROM tbl)`\
