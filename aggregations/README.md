@@ -36,7 +36,7 @@ Find the earliest record of product col_a (col_b is year).
 ```
 WHERE(col_a, col_b) IN (SELECT col_a, MIN(col_b) FROM table GROUP BY col_a)
 ```
-Typo
+Typo ❌
 ```
 WHERE(col_a, col_b) IN (SELECT (col_a, MIN(col_b)) FROM table GROUP BY col_a)
 ```
