@@ -60,22 +60,22 @@ Explanation:
 
 -- Granularity: customer_id+visited_on -> visited_on
 WITH t1 AS (SELECT visited_on, 
-									 SUM(amount) AS amount								   
-		  			FROM Customer
-		  			GROUP BY visited_on)
-	 , t2 AS (SELECT visited_on, 
-									 ROW_NUMBER() OVER(ORDER BY visited_on) AS row_num,
-					    		 SUM(amount) OVER(ORDER BY visited_on
-				                        		ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS amount, 
-																		-- 计算当前行和前六行
-		               AVG(amount) OVER (ORDER BY visited_on
-				                        		 ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS average_amount
-						FROM t1)
+		   SUM(amount) AS amount								   
+	    FROM Customer
+	    GROUP BY visited_on)
+, t2 AS (SELECT visited_on, 
+		ROW_NUMBER() OVER(ORDER BY visited_on) AS row_num,
+		SUM(amount) OVER(ORDER BY visited_on
+				 ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS amount, 
+				 -- 计算当前行和前六行
+		AVG(amount) OVER (ORDER BY visited_on
+				  ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS average_amount
+	 FROM t1)
 SELECT visited_on, amount, ROUND(average_amount, 2) average_amount
 FROM t2
 WHERE row_num >= 7; 
-			-- 一定要在t2外进行>=7的筛选，sum()over()是在where条件之后进行
-			-- 所以如果在t2内筛选，就会变成对01-07及之后的amount进行rolling sum()
+      -- 一定要在t2外进行>=7的筛选，sum()over()是在where条件之后进行
+      -- 所以如果在t2内筛选，就会变成对01-07及之后的amount进行rolling sum()
 /*
 t1
 | visited_on | amount |
@@ -107,12 +107,12 @@ t2
 
 -- Solution 2
 -- 相比于method 1慢一些，但可以应用于缺失日期的情况，也就是不区分是否为business day，如果休息日的记录在表中没有的话，也不影响进行包含该日期下amount=0的聚合
-									-- 通过distinct将原表的颗粒度变成visited_on
+-- 通过distinct将原表的颗粒度变成visited_on
 WITH t AS (SELECT DISTINCT visited_on, 
-								  SUM(amount) OVER (ORDER BY visited_on 
-																		RANGE BETWEEN INTERVAL 6 DAY PRECEDING AND CURRENT ROW) AS amount,
-																		-- 计算当前日期和前六天的所有行
-								  DENSE_RANK() OVER (ORDER BY visited_on) AS rk
+		  SUM(amount) OVER (ORDER BY visited_on 
+				    RANGE BETWEEN INTERVAL 6 DAY PRECEDING AND CURRENT ROW) AS amount,
+				    -- 计算当前日期和前六天的所有行
+		  DENSE_RANK() OVER (ORDER BY visited_on) AS rk
            FROM Customer)
 SELECT visited_on, amount, ROUND(amount/7, 2) AS average_amount
 FROM t
