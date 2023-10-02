@@ -7,7 +7,7 @@ For rates: <b>result * 100 before ROUND()</b>
 
 #### [leetcode_Q1142: User Activity for the Past 30 Days II](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1142_ifnull_for_0_in_denominator.sql)
 `CASE WHEN` or `IFNULL()` \
-For `COUNT()` in the denominator: always prevent the situation where `COUNT()` = 0.\
+For `COUNT()` in the denominator: always prevent the situation where COUNT() = 0.\
 If there is a join between table A and B, sum(B.col) is very likely equal to 0 when there is a record in A but not in B.
 
 #### [leetcode_Q1934: Confirmation Rate](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1934.sql)
