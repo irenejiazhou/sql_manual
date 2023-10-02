@@ -12,3 +12,11 @@ Taking the sales process of `Opportunity → Store Visit → Test Drive → Orde
 3. <b>Overall View for a Specific Time Period</b>: Look at all the data for a specific period, e.g., all opportunities in April, all test drives in April, etc.
 
 For the first two types, some logic is required to associate each stage in the sales funnel to track the downstream impact of an opportunity accurately. In contrast, the third type focuses on aggregate-level data, not requiring tracking with granularity down to each individual opportunity; hence, there's no need to detail the data.
+
+#### Flag Label Design 
+Example — Test Drive on the Day of the Store Visit:
+Associate opportunities and test drives based on the store visit. Here's how we can interpret the flag:
+- **-1**: Prerequisite condition not met (Unable to associate opportunities and test drives through the store visit).
+- **NULL**: No test drive on the day of the store visit.
+- **1**: Test drove on the day of the store visit.
+- **0**: Test drove on a different day than the store visit.
