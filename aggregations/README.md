@@ -39,7 +39,7 @@ WHERE(col_a, col_b) IN (SELECT col_a, MIN(col_b) FROM table GROUP BY col_a)
 
 
 #### Others
-1. avg(rating < 3) = sum(rating < 3) / count(rating)\
+1. AVG(rating < 3) = SUM(rating < 3) / COUNT(rating)\
 For example, if the ratings are [1, 2, 3, 4, 5]:
    1) SUM(rating < 3) = 2 (because there are two values less than 3: 1 and 2)
    2) COUNT(rating) = 5 (because there are five ratings)
