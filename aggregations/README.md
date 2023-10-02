@@ -45,6 +45,7 @@ WHERE(col_a, col_b) IN (SELECT (col_a, MIN(col_b)) FROM table GROUP BY col_a)
 ```
 SUM(CASE WHEN operation = 'Buy' THEN -price ELSE price END) AS capital_gain_loss
 ```
+[Similar Question: leetcode_Q1445](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1445.sql)
 
 ### Others
 #### AVG(rating < 3) = SUM(rating < 3) / COUNT(rating)
