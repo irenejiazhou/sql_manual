@@ -1,6 +1,3 @@
-col_a IN (SELECT col_b FROM tbl)
--- the result is 1 or 0 which can be used like sum(col_a IN (SELECT col_b FROM tbl))
-
 -- MEDIUM Q1364: Number of Trusted Contacts of a Customer
 /*
 Table: Customers
