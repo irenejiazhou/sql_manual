@@ -14,9 +14,9 @@ If there is a join between table A and B, sum(B.col) is very likely equal to 0 w
 `ROUND(IFNULL(SUM()/COUNT(),0),2)`
 
 #### [leetcode_Q1193: Monthly Transactions I](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1193_sum(case%20when).sql)
-1. `SUM(CASE WHEN)` can be used in SQL to get result of `SUMIF()` in Excel.
+1. SUM(CASE WHEN) can be used in SQL to get result of SUMIF() in Excel.
 
-2. `SUM(state='approved')` vs `COUNT(state='approved')`
+2. SUM(state='approved') vs COUNT(state='approved')
    1) When state = 'approved', SUM(state='approved') = 1, and COUNT(state='approved') = 1.
    2) When state != 'approved', SUM(state='approved') = 0, but COUNT(state='approved') = 1.
    3) COUNT() cannot be used in COUNT(condition) because no matter the condition works or not, COUNT(1) and COUNT(0) both equals to 1.
