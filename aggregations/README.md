@@ -28,5 +28,5 @@ HAVING SUM(IF(LEFT(order_date, 7) = '2020-06', quantity, 0) * price) >= 100
 
 #### [leetcode_Q1126: Active Businesses](https://github.com/irenejiazhou/sql_manual/blob/main/aggregations/leetcode_Q1126_avg()over().sql)
 ```
-avg(occurences) over(partition by event_type)
+AVG(occurences) OVER(PARTITION BY event_type)
 ```
